@@ -3,7 +3,6 @@ QML_IMPORT_PATH =
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    pushbuttonitem.cpp \
     mymap.cpp
 
 RESOURCES += qml.qrc
@@ -18,7 +17,6 @@ include(qtquick1applicationviewer/qtquick1applicationviewer.pri)
 include(deployment.pri)
 
 HEADERS += \
-    pushbuttonitem.h \
     mymap.h
 
 LIBS += -lmarblewidget
