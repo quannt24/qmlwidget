@@ -16,6 +16,9 @@
 #include <QtDeclarative>
 #include <marble/MarbleWidget.h>
 
+#include "carworker.h"
+#include <marble/GeoDataPlacemark.h>
+
 class MyMap : public QDeclarativeItem
 {
     Q_OBJECT
@@ -23,6 +26,10 @@ class MyMap : public QDeclarativeItem
 private:
     QGraphicsProxyWidget *proxy;
     Marble::MarbleWidget *map;
+
+    CarWorker *m_firstWorker;
+    Marble::GeoDataPlacemark *m_carFirst;
+    QThread *m_threadFirst;
 
 public:
     MyMap(QDeclarativeItem *parent = 0);
@@ -40,6 +47,8 @@ public:
      */
     Q_INVOKABLE double centerLat();
 
+    void startCars();
+
 public slots:
     void onSizeChanged();
     void centerOn(double lon, double lat);
@@ -53,6 +62,8 @@ public slots:
      * @param deltaY
      */
     void pan(double orgLon, double orgLat, double deltaX, double deltaY);
+
+    void setCarCoordinates(const Marble::GeoDataCoordinates &coord);
 };
 
 #endif // MYMAP_H

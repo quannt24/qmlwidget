@@ -10,6 +10,7 @@ Rectangle {
         objectName: "myMap"
         anchors.fill: parent
 
+        /*
         MouseArea {
             id: mouseArea
             anchors.fill: parent
@@ -32,5 +33,6 @@ Rectangle {
                 }
             }
         }
+        */
     }
 }

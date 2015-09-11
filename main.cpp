@@ -10,10 +10,11 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<MyMap>("MyMap", 1, 0, "MyMap");
 
-    viewer.setMainQmlFile("main.qml");
+    viewer.setSource(QString("main.qml"));
+
     MyMap *myMap = (MyMap*) viewer.rootObject()->findChild<MyMap*>("myMap");
     if (myMap) {
-        qDebug() << "found map";
+        myMap->startCars();
     }
 
     viewer.showExpanded();

@@ -3,7 +3,8 @@ QML_IMPORT_PATH =
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    mymap.cpp
+    mymap.cpp \
+    carworker.cpp
 
 RESOURCES += qml.qrc
 
@@ -17,6 +18,7 @@ include(qtquick1applicationviewer/qtquick1applicationviewer.pri)
 include(deployment.pri)
 
 HEADERS += \
-    mymap.h
+    mymap.h \
+    carworker.h
 
-LIBS += -lmarblewidget
+LIBS += -lmarblewidget -lQtSvg
