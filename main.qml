@@ -5,34 +5,20 @@ Rectangle {
     width: 800
     height: 600
 
+
     MyMap {
         id: map
-        objectName: "myMap"
+
         anchors.fill: parent
+        objectName: "myMap"
+    }
 
-        /*
-        MouseArea {
-            id: mouseArea
-            anchors.fill: parent
+    Text {
+        id: textGeoInfo
 
-            property int pressedX: parent.width / 2
-            property int pressedY: parent.height / 2
-            property real panOrgLon: 0
-            property real panOrgLat: 0
-
-            onPressed: {
-                pressedX = mouseX
-                pressedY = mouseY
-                panOrgLon = map.centerLon()
-                panOrgLat = map.centerLat()
-            }
-
-            onMousePositionChanged: {
-                if (pressed) {
-                    map.pan(panOrgLon, panOrgLat, pressedX - mouseX, mouseY - pressedY);
-                }
-            }
-        }
-        */
+        height: 40
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        text: qsTr("Geo info")
     }
 }
