@@ -17,6 +17,7 @@ MyMap::MyMap(QDeclarativeItem *parent) : QDeclarativeItem(parent)
     Marble::GeoDataCoordinates Kiev(30.523333, 50.45, 0.0, Marble::GeoDataCoordinates::Degree);
     map->centerOn(Kiev);
     map->setZoom(2300);
+    geoInfo = QString("geo info");
 
     QSvgRenderer renderer(QString("bus.svg"));
     QImage busicon(18, 18, QImage::Format_ARGB32);
@@ -54,6 +55,17 @@ MyMap::MyMap(QDeclarativeItem *parent) : QDeclarativeItem(parent)
 
     QObject::connect(this, SIGNAL(widthChanged()), this, SLOT(onSizeChanged()));
     QObject::connect(this, SIGNAL(heightChanged()), this, SLOT(onSizeChanged()));
+    QObject::connect(map, SIGNAL(mouseMoveGeoPosition(QString)), this, SLOT(onMouseMoveGeoLocation(QString)));
+}
+
+QString &MyMap::getGeoInfo()
+{
+    return geoInfo;
+}
+
+void MyMap::setGetGeoInfo(QString &info)
+{
+    geoInfo = info;
 }
 
 void MyMap::onSizeChanged()
@@ -61,6 +73,12 @@ void MyMap::onSizeChanged()
     // Resize the child marble widget
     proxy->setPos(this->x(), this->y());
     proxy->resize(this->width(), this->height());
+}
+
+void MyMap::onMouseMoveGeoLocation(QString geoLoc)
+{
+    this->geoInfo = geoLoc;
+    emit geoInfoChanged();
 }
 
 void MyMap::startCars()

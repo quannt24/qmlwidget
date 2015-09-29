@@ -24,6 +24,8 @@ class MyMap : public QDeclarativeItem
     Q_OBJECT
 
 private:
+    Q_PROPERTY(QString geoInfo READ getGeoInfo() WRITE setGetGeoInfo NOTIFY geoInfoChanged)
+
     QGraphicsProxyWidget *proxy;
     Marble::VMarbleWidget *map;
 
@@ -31,13 +33,23 @@ private:
     Marble::GeoDataPlacemark *m_carFirst;
     QThread *m_threadFirst;
 
+    QString geoInfo;
+
 public:
     MyMap(QDeclarativeItem *parent = 0);
 
+    QString &getGeoInfo();
+    void setGetGeoInfo(QString &info);
+
     void startCars();
+
+signals:
+    void geoInfoChanged();
 
 public slots:
     void onSizeChanged();
+
+    void onMouseMoveGeoLocation(QString geoLoc);
 
     void setCarCoordinates(const Marble::GeoDataCoordinates &coord);
 };

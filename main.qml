@@ -19,6 +19,6 @@ Rectangle {
         height: 40
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        text: qsTr("Geo info")
+        text: map.geoInfo
     }
 }
