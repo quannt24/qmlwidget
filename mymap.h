@@ -24,7 +24,7 @@ class MyMap : public QDeclarativeItem
     Q_OBJECT
 
 private:
-    Q_PROPERTY(QString geoInfo READ getGeoInfo() WRITE setGetGeoInfo NOTIFY geoInfoChanged)
+    Q_PROPERTY(QString geoInfo READ getGeoInfo() WRITE setGeoInfo NOTIFY geoInfoChanged)
 
     QGraphicsProxyWidget *proxy;
     Marble::VMarbleWidget *map;
@@ -39,7 +39,7 @@ public:
     MyMap(QDeclarativeItem *parent = 0);
 
     QString &getGeoInfo();
-    void setGetGeoInfo(QString &info);
+    void setGeoInfo(QString &info);
 
     void startCars();
 

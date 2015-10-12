@@ -12,9 +12,11 @@ int main(int argc, char *argv[])
 
     viewer.setSource(QString("main.qml"));
 
-    MyMap *myMap = (MyMap*) viewer.rootObject()->findChild<MyMap*>("myMap");
+    MyMap *myMap = (MyMap*) viewer.rootObject()->findChild<MyMap*>("map1");
     if (myMap) {
         myMap->startCars();
+    } else {
+        qDebug() << "Cannot find map object";
     }
 
     viewer.showExpanded();

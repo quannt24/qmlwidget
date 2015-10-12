@@ -63,7 +63,7 @@ QString &MyMap::getGeoInfo()
     return geoInfo;
 }
 
-void MyMap::setGetGeoInfo(QString &info)
+void MyMap::setGeoInfo(QString &info)
 {
     geoInfo = info;
 }

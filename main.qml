@@ -9,8 +9,20 @@ Rectangle {
     MyMap {
         id: map
 
-        anchors.fill: parent
-        objectName: "myMap"
+        width: parent.width / 2
+        height: parent.height
+        anchors.top: parent.top
+        anchors.left: parent.left
+        objectName: "map1"
+    }
+
+    MyMap {
+        id: map2
+
+        width: parent.width / 2
+        height: parent.height
+        anchors.top: parent.top
+        anchors.left: map.right
     }
 
     Text {
